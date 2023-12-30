@@ -1,0 +1,32 @@
+header{
+    padding-bottom: 6rem;
+    background-color: #8e9298 !important;
+    background-image: linear-gradient(135deg, #9fa3a8 0%, #cde3e1 100%) !important;
+}
+.mt-n10{
+    margin-top: -8rem;
+}
+.table th, .table td{
+    padding: .5%
+}
+.table td {
+    max-width: 150px; 
+    white-space: normal !important;
+}
+
+.btn.btn-sm{
+    border-radius: 8px;
+}
+.btn i{
+    padding: 0px;
+}
+.img-account-profile {
+    height: 10rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+img, svg {
+    vertical-align: middle;
+}
