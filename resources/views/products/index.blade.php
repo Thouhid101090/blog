@@ -12,25 +12,20 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-auto">
                     <h2 class="page-header-title d-flex">
-                        <i class="menu-icon mdi mdi-package-variant-closed me-2
-                        "></i>
+                        <i class="menu-icon mdi mdi-package-variant-closed me-2"></i>
                         <b>Product List</b>
                     </h2>
                 </div>
                 <div class="col-auto">
-                   
+
                             <a href="{{ route('blog.create') }}" class="btn btn-primary add-list">Add
                             </a>
                             <a href="{{ route('blog.index') }}" class="btn btn-danger add-list">Clear Search
                             </a>
                 </div>
             </div>
-
-            {{-- @include('partials._breadcrumbs') --}}
-        </div>
+         </div>
     </div>
-
-    {{-- @include('partials.session') --}}
 </header>
 
 <div  class="container px-4 mt-n10">
@@ -99,9 +94,9 @@
                                                 src="{{ $product->product_image ? asset('public/uploads/productImage/'.$product->product_image) : asset('assets/img/products/default.webp') }}">
                                         </div>
                                     </td>
-                                    <td>{{ $product->product_name }}</td>
+                                    <td>{{ $product->title }}</td>
                                     <td>{{ $product->category->name }}</td>
-                                    <td>{{ $product->selling_price }}</td>
+                                    <td>{{ $product->details }}</td>
                                     <td>
                                         <div class="d-flex">
                                             <a href="{{ route('products.show', $product->id) }}"

@@ -9,8 +9,8 @@ use App\Models\Blog;
 use App\Models\Category;
 
 use Illuminate\Http\Request;
-use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Writer\Xls;
+
+
 use Picqer\Barcode\BarcodeGeneratorHTML;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use App\Http\Requests\Product\StoreProductRequest;
@@ -45,7 +45,7 @@ class BlogController extends Controller
     {
         $categories=Category::get();
         return view('products.create',compact('categories'));
-        
+
     }
 
     /**
@@ -55,12 +55,12 @@ class BlogController extends Controller
     {
         try {
             $product = new Blog;
-            $product->product_name=$request->proName;
+            $product->title=$request->proName;
             $product->category_id=$request->categoryId ;
-            $product->selling_price=$request-> sellingPrice;
-            $product->product_code=$request->productCode ;
-            $product->brand=$request->brand;
-    
+
+
+
+
             if($request->hasFile('product_image')){
                 $imageName=rand(111,999).time().'.'.$request->product_image->extension();
                 $request->product_image->move(public_path('uploads/productImage'),$imageName);
@@ -71,9 +71,9 @@ class BlogController extends Controller
             $this->notice::success('Product has been added');
             return redirect()->route('products.index');
         } catch (Exception $e) {
-            // dd($e);
+            dd($e);
         }
-    
+
 
     }
 
@@ -116,23 +116,24 @@ class BlogController extends Controller
         try {
             $product = Blog::findorFail($id);
             $product->update($request->except('product_image'));
-            $product->product_name=$request->proName;
+            $product->title=$request->proName;
             $product->category_id=$request->categoryId ;
-            $product->selling_price=$request-> sellingPrice;
-            $product->product_code=$request->productCode ;
-            $product->brand=$request->brand;
+            $product->details=$request->dtl ;
+
+
+
             //handel upload image
             if($request->hasFile('product_image')){
                 //Delete Old Photo
                 // if($product->product_image){
                 //     unlink(public_path('uploads/productImage'));
                 // }
-    
+
                 //prepare New Photo
                 $imageName=rand(111,999).time().'.'.$request->product_image->extension();
                 $request->product_image->move(public_path('uploads/productImage'),$imageName);
                 $product->product_image=$imageName;
-    
+
                 //save DB
                 $product->update([
                     'product_image' => $imageName
@@ -141,12 +142,12 @@ class BlogController extends Controller
                 $product->save();
                 $this->notice::success('Data successfully updated');
                 return redirect()->route('products.index');
-                               
+
             }
         } catch (Exeption $e) {
             dd($e);
         }
-       
+
     }
 
     /**

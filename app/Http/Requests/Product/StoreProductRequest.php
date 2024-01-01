@@ -23,11 +23,8 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'product_image' => 'required',
-            'proName' => 'required|max:255|unique:products,product_name,id',
+            'proName' => 'required|max:255|unique:blogs,title,id',
             'categoryId' => 'required',
-            'sellingPrice' => 'required',
-            'productCode' => 'required',
-            'brand' => 'required'
         ];
     }
 }
