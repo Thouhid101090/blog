@@ -27,9 +27,7 @@ class UpdateProductRequest extends FormRequest
             'product_image' => 'required',
             'proName' => 'required|max:255',
             'categoryId' => 'required',
-            'sellingPrice' => 'required',
-            'productCode' => 'required',
-            'brand' => 'required'
+           
         ];
     }
 }

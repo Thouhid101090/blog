@@ -57,19 +57,19 @@ class BlogController extends Controller
             $product = new Blog;
             $product->title=$request->proName;
             $product->category_id=$request->categoryId ;
-
+            $product->details=$request->details ;
 
 
 
             if($request->hasFile('product_image')){
                 $imageName=rand(111,999).time().'.'.$request->product_image->extension();
                 $request->product_image->move(public_path('uploads/productImage'),$imageName);
-                $product->product_image=$imageName;
+                $product->image=$imageName;
             }
             $product->created_by=currentUserId();
             if( $product->save())
             $this->notice::success('Product has been added');
-            return redirect()->route('products.index');
+            return redirect()->route('blog.index');
         } catch (Exception $e) {
             dd($e);
         }
@@ -80,19 +80,7 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
-    {
-        //general barcode
 
-        $generator = new BarcodeGeneratorHTML();
-        $barcode = $generator->getBarcode($product->product_code,$generator::TYPE_CODE_128);
-         return view('products.show', [
-        'product' => $product,
-        'barcode' => $barcode,
-    ]);
-
-
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -118,7 +106,7 @@ class BlogController extends Controller
             $product->update($request->except('product_image'));
             $product->title=$request->proName;
             $product->category_id=$request->categoryId ;
-            $product->details=$request->dtl ;
+            $product->details=$request->details ;
 
 
 

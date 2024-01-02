@@ -30,14 +30,15 @@
             <div class="col-xl-4">
                 <!-- Product image card-->
                 <div class="card mb-4 mb-xl-0">
-                    <div class="card-header">Product Image</div>
+                    <div class="card-header">Image</div>
                     <div class="card-body text-center">
                         <!-- Product image -->
                         <img class="img-account-profile mb-2" src="{{ asset('public/assets/img/products/default.webp') }}" alt="" id="image-preview" />
                         <!-- Product image help block -->
                         <div class="small font-italic text-muted mb-2">JPG or PNG no larger than 2 MB</div>
                         <!-- Product image input -->
-                        <input class="form-control form-control-solid mb-2 @error('product_image') is-invalid @enderror" type="file"  id="image" name="product_image" accept="image/*" onchange="previewImage();">
+                        <input class="form-control form-control-solid mb-2 @error('product_image') is-invalid @enderror" 
+                        type="file"  id="image" name="product_image" accept="image/*" onchange="previewImage();">
                         @error('product_image')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -57,7 +58,8 @@
                         <!-- Form Group (product name) -->
                         <div class="mb-3">
                             <label class="small mb-1" for="proName">Title<span class="text-danger">*</span></label>
-                            <input class="form-control form-control-solid @error('proName') is-invalid @enderror" id="proName" name="proName" type="text" placeholder="" value="{{ old('proName') }}" autocomplete="off"/>
+                            <input class="form-control form-control-solid @error('proName') is-invalid @enderror" id="proName"
+                             name="proName" type="text" placeholder="" value="{{ old('proName') }}" autocomplete="off"/>
                             @error('proName')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -67,7 +69,8 @@
 
                         <div class="mb-3">
                             <label class="small mb-1" for="details">Details<span class="text-danger">*</span></label>
-                            <textarea class="form-control form-control-solid @error('details') is-invalid @enderror"  name="details" id="" cols="30" rows="10"></textarea>
+                            <textarea  style="resize: both;" class="form-control form-control-solid @error('details') is-invalid @enderror"
+                            value="{{ old('details') }}" name="details" id="" cols="30" rows="30"></textarea>
 
                             @error('details')
                             <div class="invalid-feedback">

@@ -77,9 +77,9 @@
                                 <tr>
                                     <th scope="col">{{__('No.')}}</th>
                                     <th scope="col">{{__('Image')}}</th>
-                                    <th scope="col">{{__('Product Name')}}</th>
-                                    <th scope="col">{{__('Category')}}</th>
-                                    <th scope="col">{{__('Price')}}</th>
+                                    <th scope="col">{{__('Blog Title')}}</th>
+                                    <th scope="col">{{__('Category')}}</th>   
+                                    <th scope="col">{{__('Blog Details')}}</th>                              
                                     <th scope="col">{{__('Action')}}</th>
                                 </tr>
                             </thead>
@@ -91,7 +91,7 @@
                                     <td>
                                         <div style="max-height: 80px; max-width: 80px;">
                                             <img class="img-fluid"
-                                                src="{{ $product->product_image ? asset('public/uploads/productImage/'.$product->product_image) : asset('assets/img/products/default.webp') }}">
+                                                src="{{ $product->image ? asset('public/uploads/productImage/'.$product->image) : asset('assets/img/products/default.webp') }}">
                                         </div>
                                     </td>
                                     <td>{{ $product->title }}</td>
@@ -99,16 +99,16 @@
                                     <td>{{ $product->details }}</td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="{{ route('products.show', $product->id) }}"
+                                            {{-- <a href="{{ route('products.show', $product->id) }}"
                                                 class="btn btn-outline-success btn-sm mx-1"><i
-                                                    class="mdi mdi-eye"></i></a>
+                                                    class="mdi mdi-eye"></i></a> --}}
 
-                                            <a href="{{ route('products.edit',$product->id) }}"
+                                            <a href="{{ route('blog.edit',$product->id) }}"
                                                 class="btn btn-outline-primary btn-sm mx-1"><i class="mdi mdi-border-color
                                                 "></i></a>
 
                                             <form
-                                                action="{{ route('products.destroy',encryptor('encrypt',$product->id)) }}"
+                                                action="{{ route('blog.destroy',encryptor('encrypt',$product->id)) }}"
                                                 method="POST">
                                                 @method('delete')
                                                 @csrf
