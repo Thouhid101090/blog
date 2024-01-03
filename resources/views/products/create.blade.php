@@ -37,7 +37,7 @@
                         <!-- Product image help block -->
                         <div class="small font-italic text-muted mb-2">JPG or PNG no larger than 2 MB</div>
                         <!-- Product image input -->
-                        <input class="form-control form-control-solid mb-2 @error('product_image') is-invalid @enderror" 
+                        <input class="form-control form-control-solid mb-2 @error('product_image') is-invalid @enderror"
                         type="file"  id="image" name="product_image" accept="image/*" onchange="previewImage();">
                         @error('product_image')
                         <div class="invalid-feedback">
@@ -66,6 +66,16 @@
                             </div>
                             @enderror
                         </div>
+                        {{-- <div class="mb-3">
+                            <label class="small mb-1" for="author">Author<span class="text-danger">*</span></label>
+                            <input class="form-control form-control-solid @error('author') is-invalid @enderror" id="author"
+                             name="proName" type="text" placeholder="" value="{{ old('author') }}" autocomplete="off"/>
+                            @error('author')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div> --}}
 
                         <div class="mb-3">
                             <label class="small mb-1" for="details">Details<span class="text-danger">*</span></label>

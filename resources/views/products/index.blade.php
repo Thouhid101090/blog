@@ -78,8 +78,8 @@
                                     <th scope="col">{{__('No.')}}</th>
                                     <th scope="col">{{__('Image')}}</th>
                                     <th scope="col">{{__('Blog Title')}}</th>
-                                    <th scope="col">{{__('Category')}}</th>   
-                                    <th scope="col">{{__('Blog Details')}}</th>                              
+                                    <th scope="col">{{__('Category')}}</th>
+                                    <th scope="col">{{__('Blog Details')}}</th>
                                     <th scope="col">{{__('Action')}}</th>
                                 </tr>
                             </thead>
@@ -95,6 +95,7 @@
                                         </div>
                                     </td>
                                     <td>{{ $product->title }}</td>
+                                    {{-- <td>{{ $product->author }}</td> --}}
                                     <td>{{ $product->category->name }}</td>
                                     <td>{{ $product->details }}</td>
                                     <td>

@@ -20,5 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('blog', [BlogController::class,'showBlogs']);
+Route::get('blog/{id}', [BlogController::class,'showBlogs']);
+Route::get('categorypost/{cid}', [BlogController::class,'categorypost']);
 Route::get('cat', [categotyController::class,'displayCat']);

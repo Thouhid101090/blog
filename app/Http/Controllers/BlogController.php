@@ -58,7 +58,8 @@ class BlogController extends Controller
             $product->title=$request->proName;
             $product->category_id=$request->categoryId ;
             $product->details=$request->details ;
-
+            // $product->auther=$request->auther ;
+          
 
 
             if($request->hasFile('product_image')){
@@ -105,8 +106,10 @@ class BlogController extends Controller
             $product = Blog::findorFail($id);
             $product->update($request->except('product_image'));
             $product->title=$request->proName;
-            $product->category_id=$request->categoryId ;
+            $product->category_id=$request->categoryId;
             $product->details=$request->details ;
+            // $product->auther=$request->auther ;
+            // $product->publish_date=$request->publish_date ;
 
 
 
